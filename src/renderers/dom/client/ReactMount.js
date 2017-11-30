@@ -481,6 +481,8 @@ var ReactMount = {
       nextContext = emptyObject;
     }
 
+    // 首次渲染`prevComponent`为空
+    // 多次调用render，后续`render`会如何？
     var prevComponent = getTopLevelWrapperInContainer(container);
 
     if (prevComponent) {
@@ -506,6 +508,8 @@ var ReactMount = {
       }
     }
 
+    // 获取`container`的子节点，对于初次渲染同样是为空的
+    // 若`render`的是个数组会怎样？
     var reactRootElement = getReactRootElementInContainer(container);
     var containerHasReactMarkup =
       reactRootElement && !!internalGetID(reactRootElement);
